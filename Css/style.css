@@ -14,9 +14,12 @@
     font-style: normal;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     width: 100%;
-    height: 100vh;
     background-image: url(../Image/background.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -32,6 +35,8 @@ body {
     align-items: center;
     overflow: hidden;
     padding: 20px;
+    backdrop-filter: blur(10px);
+    z-index: 999;
 
     & .navbar-logo {
         width: 250px;
@@ -62,6 +67,7 @@ body {
                 color: #1a1a1a;
                 transition: all .3s ease;
                 cursor: pointer;
+                text-decoration: none;
             }
 
             & a:hover {
@@ -125,6 +131,7 @@ body {
             height: 40px;
             border: none;
             outline: none;
+            font-size: 16px;
             margin-top: 25px;
             border-radius: 20px;
             font-weight: 400;
@@ -251,7 +258,7 @@ body {
 
 .form-container input[type=text],
 .form-container input[type=password],
-.form-container input[type=datetime-local],
+.form-container input[type=date],
 .form-container input[type=number],
 .form-container input[type=email] {
     width: 100%;
@@ -265,7 +272,7 @@ body {
 }
 
 .form-container .btn {
-    background-color: #04AA6D;
+    background-color: #4d6eb6;
     color: white;
     padding: 16px 20px;
     border: none;
@@ -275,10 +282,11 @@ body {
     font-size: 15px;
     margin-bottom: 10px;
     opacity: 0.8;
+    transition: all .5s ease;
 }
 
 .form-container .cancel {
-    background-color: red;
+    background-color: rgb(253, 90, 112);
 }
 
 .form-container .btn:hover,
@@ -289,4 +297,443 @@ body {
 #signup-container {
     width: 600px;
     transform: scale(0.8);
+}
+
+
+.explain-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .explain-content {
+        width: 100%;
+        height: 700px;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        & .explain-title {
+            width: 1500px;
+            height: 250px;
+            padding: 20px;
+            background-color: #ffffffa9;
+            border-radius: 10px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+            & span {
+                font-size: 30px;
+                font-weight: 500;
+                color: #1a1a1a;
+            }
+
+            & .line-span {
+                width: 60px;
+                border-radius: 20px;
+                border-bottom: 5px solid #137ab6;
+            }
+
+            & b {
+                color: #1a1a1a;
+                font-size: 45px;
+                font-family: "Kanit", sans-serif;
+            }
+
+            & p {
+                color: #1a1a1a;
+                font-size: 18px;
+                font-family: "Kanit", sans-serif;
+            }
+        }
+
+        & .explain-banner {
+            width: 1500px;
+            height: 400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & .explain-list {
+                width: 300px;
+                height: 300px;
+                margin: 10px;
+                border-radius: 10px;
+                background-color: #ffffffa9;
+                transition: all .5s ease;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                overflow: hidden;
+                transform: scale(1.06);
+
+                & .img-list-banner {
+                    width: 300px;
+                    height: 100px;
+                    outline: none;
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    & img {
+                        filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.548));
+                    }
+                }
+
+                & h1 {
+                    font-family: "Kanit", sans-serif;
+                    font-weight: bold;
+                    margin-top: 10px;
+                    margin-left: 20px;
+                }
+
+                & p {
+                    font-family: "Kanit", sans-serif;
+                    margin-left: 20px;
+                }
+
+                & button {
+                    width: 100px;
+                    height: 30px;
+                    margin-top: 20px;
+                    margin-left: 20px;
+                    color: #1a1a1a;
+                    font-weight: 400;
+                    border: none;
+                    outline: none;
+                    border-radius: 10px;
+                    transition: all .5s ease;
+                    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                }
+
+                & button:hover {
+                    background: #1a1a1a;
+                    color: #ffffffa9;
+                }
+            }
+
+            & .explain-list:hover {
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+.Product-container,
+.Reviews-container,
+.Doctor-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.product-content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: all .5s ease;
+
+    & .product-title {
+        width: 1200px;
+        padding: 20px;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        background: #ffffffa9;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        cursor: pointer;
+
+        & span {
+            font-size: 30px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        & .line-product {
+            width: 60px;
+            margin-top: 10px;
+            border-radius: 20px;
+            border-bottom: 5px solid #137ab6;
+        }
+
+        & p {
+            font-size: 40px;
+            font-family: "Kanit", sans-serif;
+        }
+
+        & .get-detail {
+            position: absolute;
+            top: 70%;
+            left: 90%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 40px;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            font-weight: 400;
+            background-color: #137ab6c5;
+            transition: all .5s ease;
+            cursor: pointer;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+            & a {
+                color: #ffffffa9;
+                text-decoration: none;
+            }
+        }
+
+        & .get-detail:hover {
+            width: 160px;
+            color: #1a1a1a;
+        }
+    }
+
+    & .product-list-container {
+        width: 1200px;
+        height: 400px;
+        margin-top: 250px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & .product-list {
+            width: 320px;
+            height: 500px;
+            cursor: pointer;
+            overflow: hidden;
+            text-align: center;
+            border-radius: 10px;
+            background: #ffffffa9;
+            transition: all .5s ease;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+            & .image-product {
+                width: 320px;
+                height: 300px;
+                overflow: hidden;
+            }
+
+            & span {
+                font-family: "Kanit", sans-serif;
+                font-size: 25px;
+                font-weight: bold;
+                color: #1a1a1a;
+            }
+
+            & p {
+                font-family: "Kanit", sans-serif;
+                font-size: 14px;
+                margin-left: 10px;
+            }
+
+            & .get-detail {
+                width: 150px;
+                height: 40px;
+                border: none;
+                outline: none;
+                margin-top: 20px;
+                border-radius: 20px;
+                font-weight: 400;
+                background-color: #ffffffa9;
+                transition: all .5s ease;
+                cursor: pointer;
+                color: #1a1a1a;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            }
+        }
+
+        & .product-list:hover {
+            transform: scale(1.03);
+
+            .get-detail {
+                color: #ffffffa9;
+                background-color: #1a1a1a;
+            }
+        }
+    }
+}
+
+.reviews-title {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 430px;
+    height: 110px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #ffffffa9;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    & span {
+        font-family: "Kanit", sans-serif;
+        font-size: 35px;
+        font-weight: bold;
+        color: #779fd3f5;
+    }
+
+    & p {
+        font-family: "Kanit", sans-serif;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000000a9;
+    }
+}
+
+
+.comment-container {
+    width: 1500px;
+    height: 500px;
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .reviews-content {
+        width: 320px;
+        height: 400px;
+        margin: 20px;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: #ffffffa9;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        transition: all .5s ease;
+        cursor: pointer;
+
+        & .comment {
+            width: 100%;
+            height: 250px;
+
+            & span {
+                font-family: "Kanit", sans-serif;
+                font-size: 22px;
+            }
+        }
+
+        & .user-comment {
+            margin-top: 15px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            & img {
+                filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.349));
+            }
+
+            & p {
+                margin: 5px;
+                font-family: "Kanit", sans-serif;
+            }
+        }
+    }
+
+    .reviews-content:hover {
+        transform: scale(1.02);
+    }
+}
+
+.Doctor-title {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 430px;
+    height: 110px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #ffffffa9;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    & h1 {
+        font-family: "Kanit", sans-serif;
+        font-size: 35px;
+        font-weight: bold;
+        color: #779fd3f5;
+    }
+
+    & p {
+        font-family: "Kanit", sans-serif;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000000a9;
+    }
+}
+
+.doctor-content {
+    width: 100%;
+    height: 500px;
+    padding: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    cursor: pointer;
+
+    & .doctor-list {
+        width: 350px;
+        height: 400px;
+        margin: 20px;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 10px;
+        background: #ffffffa9;
+        transition: all .5s ease;
+
+        & img {
+            width: 100%;
+            height: 300px;
+        }
+
+        & span {
+            margin: 20px;
+            font-size: 25px;
+            font-family: "Kanit", sans-serif;
+        }
+
+        & p {
+            font-size: 16px;
+        }
+    }
+
+    & .doctor-list:hover {
+        transform: scale(1.02);
+    }
+}
+
+footer {
+    background-color: #d1f8eaab;
+    padding: 20px;
+
+    a {
+        text-decoration: none;
+
+    }
+
+    i,
+    p {
+        font-family: "Kanit", sans-serif;
+    }
+
+    i {
+        margin: 0 10px;
+        color: #137ab6;
+    }
 }
