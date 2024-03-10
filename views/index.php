@@ -187,7 +187,7 @@
             <div class="product-list-container">
                 <div class="product-list">
                     <div class="image-product">
-                        <img src="../Product/1_1.png" alt="" width="320px">
+                        <img src="../Product/1.png" alt="" width="320px">
                     </div> <br>
                     <span>คอร์สเลเซอร์สิว 12 ขั้นตอน</span>
                     <p>รักษาสิวถูกวิธีไม่ทิ้งรอย! ด้วยคอร์สเลเซอร์สิว <br> 12 ขั้นตอน ฆ่าเชื้อสิว ลดความมัน ลดรอยดำ
@@ -196,7 +196,7 @@
                 </div>
                 <div class="product-list">
                     <div class="image-product">
-                        <img src="../Product/1_1.png" alt="" width="320px">
+                        <img src="../Product/2.png" alt="" width="320px">
                     </div> <br>
                     <span>TCA Cross</span>
                     <p>รักษาหลุมสิวด้วยการใช้กรดอินทรีย์ธรรมชาติ Trichloro-Acetic Acid (TCA)</p>
@@ -204,7 +204,7 @@
                 </div>
                 <div class="product-list">
                     <div class="image-product">
-                        <img src="../Product/1_1.png" alt="" width="320px">
+                        <img src="../Product/3.png" alt="" width="320px">
                     </div> <br>
                     <span>Hair Multiplex Program</span>
                     <p>โปรแกรมดูแลผม ช่วยกระตุ้นให้ผมงอกเร็ว <br> และเจริญเติบโตได้ดี</p>
