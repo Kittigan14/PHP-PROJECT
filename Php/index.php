@@ -1,3 +1,29 @@
+<?php
+
+    include 'config.php';
+    if (isset($_POST['signup'])) {
+
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $gender = $_POST['gender'];
+        $birthday = $_POST['birthday'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $tmp = $_POST['psw'];
+        $psw = md5($tmp);
+
+        $currentDate = new DateTime();
+        $birthdate = new DateTime($birthday);
+        $age = $currentDate->diff($birthdate)->y;
+
+        $sql = "INSERT INTO customers (firstname, lastname, gender, birthday, age, email, address, password) 
+        VALUES ('$fname', '$lname', '$gender', '$birthday', '$age', '$email', '$address', '$psw')";
+        $result = mysqli_query($connect , $sql);
+        header('location:index.php');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,29 +93,29 @@
 
 
         <div class="form-popup" id="login">
-            <form action="/" class="form-container">
+            <form action="#" method="post" class="form-container">
                 <h1>Login</h1>
 
                 <label for="name"> First Name </label>
-                <input type="text" placeholder="Enter name..." name="fname" required>
+                <input type="text" placeholder="Enter name" name="fname" required>
 
                 <label for="psw"> Password </label>
-                <input type="password" placeholder="Enter Password..." name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw" required>
 
                 <button type="submit" class="btn">Login</button>
-                <button type="button" class="btn cancel" onclick="closelogin()">Close</button>
+                <button type="button" name="login" class="btn cancel" onclick="closelogin()">Close</button>
             </form>
         </div>
 
         <div class="form-popup" id="signup">
-            <form action="/" class="form-container" id="signup-container">
+            <form action="#" method="post" class="form-container" id="signup-container">
                 <h1>Sign up</h1>
 
                 <label for="fname"> First Name</label>
-                <input type="text" placeholder="Enter Firstname..." name="fname" required>
+                <input type="text" placeholder="Enter Firstname" name="fname" required>
 
-                <label for="lanme"> Last Name </label>
-                <input type="text" placeholder="Enter Lastname..." name="lanme" required>
+                <label for="lname"> Last Name </label>
+                <input type="text" placeholder="Enter Lastname" name="lname" required>
 
                 <input class="radio" type="radio" name="gender" value="male" checked required>
                 <label>Male</label>
@@ -98,22 +124,19 @@
                 <label>Female</label> <br> <br>
 
                 <label for="birthday">Birthday</label> <br>
-                <input type="date" id="birthday" name="birthday" pattern="\d{4}-\d{2}-\d{2}" required> <br>
-
-                <label for="age">Age</label> <br>
-                <input type="number" id="age" name="age" required> <br>
+                <input type="date" id="birthday" name="birthday" required> <br>
 
                 <label for="email"> Email </label> <br>
-                <input type="email" placeholder="Enter Email..." name="email" required> <br>
-
-                <label for="psw"> Password </label>
-                <input type="password" placeholder="Enter Password..." name="psw" required>
+                <input type="email" placeholder="Enter Email" name="email" required> <br>
 
                 <label for="address"> Address </label>
-                <input type="text" placeholder="Enter your Address..." name="address" id="address" required>
+                <input type="text" placeholder="Enter your Address" name="address" id="address" required>
 
-                <button type="submit" class="btn">Login</button>
-                <button type="button" class="btn cancel" onclick="closeSignup()">Close</button>
+                <label for="psw"> Password </label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <input type="submit" name="signup" value="Sign up" class="btn"></input>
+                <input type="submit" name="close"  value="Close" onclick="closeSignup()" class="btn cancel"></input>
             </form>
         </div>
     </div>
@@ -345,11 +368,6 @@
             </div>
         </div>
     </footer>
-
-
-    <script>
-        if (!Modernizr.inputtypes.date) document.getElementById('birthday').value = 'YYYY-MM-DD';
-    </script>
 
 </body>
 </html>
