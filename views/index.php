@@ -1,29 +1,3 @@
-<?php
-
-    include 'config.php';
-    if (isset($_POST['signup'])) {
-
-        $fname = $_POST['fname'];
-        $lname = $_POST['lname'];
-        $gender = $_POST['gender'];
-        $birthday = $_POST['birthday'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
-        $tmp = $_POST['psw'];
-        $psw = md5($tmp);
-
-        $currentDate = new DateTime();
-        $birthdate = new DateTime($birthday);
-        $age = $currentDate->diff($birthdate)->y;
-
-        $sql = "INSERT INTO customers (firstname, lastname, gender, birthday, age, email, address, password) 
-        VALUES ('$fname', '$lname', '$gender', '$birthday', '$age', '$email', '$address', '$psw')";
-        $result = mysqli_query($connect , $sql);
-        header('location:index.php');
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,19 +30,27 @@
         </ul>
 
         <div class="navbar-button">
+            
+            <?php
 
-            <button class="open-button" onclick="openSignup()"> Sign up </button>
+                session_start();
 
-            <button class="open-button" onclick="openlogin()"> Log in </button>
+                if (isset($_SESSION['fname'])) {
+                    $fname = $_SESSION['fname'];
+                    echo "<button class='open-button'> $fname </button> 
+                         <button class='open-button' onclick=\"location.href='../Php/Logout_process.php'\">Log out</button>";
+                } else {
+                    echo "<button class='open-button' onclick='openSignup()'>Sign up</button>
+                          <button class='open-button' onclick='openlogin()'>Log in</button>";
+                }
+            ?>
 
         </div>
     </div>
 
     <div class="Container" id="Container">
 
-        <div class="banner-title">
-            ความงามมาจากใจและเทคโนโลยีเลเซอร์ที่ทันสมัย
-            <br>
+        <div class="banner-title"> ความงามมาจากใจและเทคโนโลยีเลเซอร์ที่ทันสมัย <br>
             <button class="get-detail">GET DETAIL</button>
         </div>
 
@@ -80,8 +62,7 @@
                 เรามุ่งมั่นในการให้บริการที่ทันสมัยเพื่อความสวยสุขภาพของผิวคุณ
             </div>
 
-            <div class="box-line">
-            </div>
+            <div class="box-line"></div>
 
             <div class="box-content-image">
                 <div class="image-laser">
@@ -91,9 +72,8 @@
 
         </div>
 
-
         <div class="form-popup" id="login">
-            <form action="#" method="post" class="form-container">
+            <form action="../Php/Login_process.php" method="post" class="form-container">
                 <h1>Login</h1>
 
                 <label for="name"> First Name </label>
@@ -102,13 +82,13 @@
                 <label for="psw"> Password </label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
 
-                <button type="submit" class="btn">Login</button>
-                <button type="button" name="login" class="btn cancel" onclick="closelogin()">Close</button>
+                <input type="submit" name="login" value="Log in" class="btn"></input>
+                <input type="submit" name="close" value="Close" onclick="closelogin()" class="btn cancel"></input>
             </form>
         </div>
 
         <div class="form-popup" id="signup">
-            <form action="#" method="post" class="form-container" id="signup-container">
+            <form action="../Php/Signup_process.php" method="post" class="form-container" id="signup-container">
                 <h1>Sign up</h1>
 
                 <label for="fname"> First Name</label>
