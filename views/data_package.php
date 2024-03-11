@@ -66,11 +66,13 @@
             cursor: pointer;
             margin-top: 10px;
         }
-        
+
         #btn-active {
             background-color: #e18774;
         }
+
     </style>
+
 </head>
 
 <body>
@@ -95,16 +97,18 @@
     <table class="package-table">
         <tr>
             <?php
-                // Output table headers
+
                 $firstRow = mysqli_fetch_assoc($result);
                 foreach ($firstRow as $key => $value) {
                     echo "<th>$key</th>";
                 }
                 echo "<th> Edit </th>";
                 echo "<th> Delete </th>";
+
             ?>
         </tr>
         <?php
+
             mysqli_data_seek($result, 0);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
@@ -112,33 +116,26 @@
                     echo "<td>$value</td>";
                     
                 }
-                echo "<td> <button class='back-button''> edit </button> </td>";
-                echo "<td> <button class='back-button' id='btn-active' > delete </button> </td>";
+                echo "<td> <button class='back-button' onclick=\"location.href='../Php/edit_packages.php?edit_package={$row['id']}'\"> edit </button> </td>";
+                echo "<td> <button class='back-button' id='btn-active' onclick=\"location.href='../Php/delete_packages.php?package_id={$row['id']}'\"> delete </button> </td>";
                 echo "</tr>";
             }
+
         ?>
+
     </table>
 
     <?php
-            } else {
-                echo "<p>No package data found.</p>";
-            }
-        } else {
-            echo "<p>Please log in to view package information.</p>";
-        }
+
+            } else echo "<p>No package data found.</p>";
+        } else echo "<p>Please log in to view package information.</p>";
+
     ?>
 
     <div class="btn-cons">
-        <button class="back-button" onclick="goBack()">Go Back</button>
-        <button class="add-button" onclick="">Add Package</button>
+        <button class="back-button" onclick="location.href='./manager.php'">Go Back</button>
+        <button class="add-button" onclick="location.href='../Php/add_packages.php'">Add Package</button>
     </div>
 
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
 </body>
-
 </html>

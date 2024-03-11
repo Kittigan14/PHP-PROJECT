@@ -114,14 +114,7 @@
     }
     ?>
 
-    <button class="back-button" onclick="goBack()">Go Back</button>
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+    <button class="back-button" onclick="location.href='./manager.php'">Go Back</button>
 
 </body>
-
 </html>
