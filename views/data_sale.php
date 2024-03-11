@@ -66,55 +66,58 @@
 <body>
 
     <?php
-    session_start();
-    include '../Php/config.php';
 
-    if (isset($_SESSION['fname'])) {
-        $fname = $_SESSION['fname'];
+        session_start();
+        include '../Php/config.php';
 
-        $sql = "SELECT id, name, price, amount FROM packages";
-        $result = mysqli_query($connect, $sql);
+        if (isset($_SESSION['fname'])) {
+            $fname = $_SESSION['fname'];
+
+            $sql = "SELECT id, name, price, amount FROM packages";
+            $result = mysqli_query($connect, $sql);
 
         if ($result && mysqli_num_rows($result) > 0) {
     ?>
-
-    <table class="package-table">
-        <tr>
-            <?php
+        <table class="package-table">
+            <tr>
+                <?php
                     $firstRow = mysqli_fetch_assoc($result);
                     foreach ($firstRow as $key => $value) {
                         echo "<th>$key</th>";
                     }
                     echo "<th>Sale</th>";
-                    ?>
-        </tr>
-        <?php
-                mysqli_data_seek($result, 0);
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    foreach ($row as $key => $value) {
-                        echo "<td>$value</td>";
-                    }
-                    echo "<td></td>";
-                    echo "</tr>";
-                }
-                echo "<th>";
-                echo "Total Sale";
-                echo "</th>";
-                echo "<td>-</td>";
                 ?>
+            </tr>
+    <?php
+
+        $totalSale = 0;
+        mysqli_data_seek($result, 0);
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            foreach ($row as $key => $value) {
+                echo "<td>$value</td>";
+            }
+
+            $sale = $row['amount'] * $row['price'];
+            $totalSale += $sale;
+
+            echo "<td>$sale</td>";
+            echo "</tr>";
+        }
+
+        echo "<th>Total Sale</th>";
+        echo "<td>$totalSale</td>";
+    ?>
+
     </table>
 
-    <?php
-        } else {
-            echo "<p>No package data found.</p>";
-        }
-    } else {
-        echo "<p>Please log in to view package information.</p>";
-    }
-    ?>
+<?php
+    } else echo "<p>No package data found.</p>";
+} else echo "<p>Please log in to view package information.</p>";
+?>
 
     <button class="back-button" onclick="location.href='./manager.php'">Go Back</button>
 
 </body>
+
 </html>

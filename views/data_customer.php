@@ -10,8 +10,6 @@
     <title>Data Customer</title>
 
     <style>
-        /* ส่วน CSS ที่มีอยู่ */
-
         body {
             font-family: "Kanit", sans-serif;
             background-color: #f4f4f4;
@@ -30,7 +28,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: left;
-            width: 1200px;
+            width: 1500px;
         }
 
         .customer-table th,
@@ -41,7 +39,11 @@
         .customer-table th {
             width: 100px;
             background-color: #f2f2f2;
-            border-radius: 10px;
+            border-radius: 5px;
+        }
+
+        .customer-table .comment {
+            border-bottom: 1px solid #1a1a1aa9;
         }
 
         .back-button {
@@ -62,50 +64,54 @@
 
 <body>
 
-    <?php
-        session_start();
-        include '../Php/config.php';
+<?php
 
-        if (isset($_SESSION['fname'])) {
-            $fname = $_SESSION['fname'];
+    session_start();
+    include '../Php/config.php';
 
-            $sql = "SELECT * FROM customers";
-            $result = mysqli_query($connect, $sql);
+    if (isset($_SESSION['fname'])) {
+        $fname = $_SESSION['fname'];
 
-            if ($result && mysqli_num_rows($result) > 0) {
+        $sql = "SELECT customers.firstname, customers.lastname, customers.phone, feedbacks.feedback
+                FROM customers
+                LEFT JOIN feedbacks ON customers.id = feedbacks.customer_id";
+
+        $result = mysqli_query($connect, $sql);
+
+        if ($result && mysqli_num_rows($result) > 0) {
     ?>
-
-    <table class="customer-table">
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone</th>
-            <th>feed Back</th>
-            <th>Reserve</th>
-        </tr>
-        <?php
+        <table class="customer-table">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th>Feedback</th>
+                <!-- <th>Reserve</th> -->
+            </tr>
+    <?php
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>" . $row['firstname'] . "</td>";
                 echo "<td>" . $row['lastname'] . "</td>";
                 echo "<td>" . $row['phone'] . "</td>";
-                echo "<td>" . $row['phone'] . "</td>";
-                echo "<td>" . $row['phone'] . "</td>";
+                echo "<td class='comment'>" . $row['feedback'] . "</td>";
                 echo "</tr>";
             }
-        ?>
-    </table>
+    ?>
+        </table>
 
     <?php
-            } else {
-                echo "<p>No customer data found.</p>";
-            }
         } else {
-            echo "<p>Please log in to view customer information.</p>";
+            echo "<p>No customer data found.</p>";
         }
-    ?>
+    } else {
+        echo "<p>Please log in to view customer information.</p>";
+    }
 
-    <button class="back-button" onclick="location.href='./manager.php'">Go Back</button>
+?>
+
+<button class="back-button" onclick="location.href='./manager.php'">Go Back</button>
+
     
 </body>
 </html>

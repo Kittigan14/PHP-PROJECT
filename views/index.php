@@ -102,13 +102,22 @@
         </div>
 
         <div class="form-popup" id="feedback">
-            <form action="" method="post" class="form-container">
+            <form action="../Php/feedback_customer.php" method="post" class="form-container">
                 <h1>Feedback</h1>
-
-                <label for="comment"> Comment </label>
-                <input type="text" placeholder="" name="comment" id="message" required>
-
-                <input type="submit" name="feedback" value="Comment" class="btn"></input>
+                
+                <?php
+                
+                    if (isset($_SESSION['fname'])) {
+                        $fname = $_SESSION['fname'];
+                        echo "<input type='hidden' name='customer_name' value='$fname' required></button> ";
+                        echo "<label for='feedback'> Comment </label>";
+                        echo "<input type='text' name='feedback' id='message' required>";
+                    } else {
+                        echo "Customer Name not found";
+                    }
+                ?>
+    
+                <input type="submit" name="submit_feedback" value="Comment" class="btn"></input>
                 <input type="submit" name="close" value="Close" onclick="closeFeedback()" class="btn cancel"></input>
             </form>
         </div>
@@ -264,7 +273,7 @@
                 <div class="comment">
                     <span>ผมมีปัญหาเรื่องสิวที่หลัง ไปรักษาที่คลินิกชื่อดังเป็นปีก็ไม่หาย
                         สุดท้ายผมมารักษากับหมอหนึ่งแล้วอาการดีขึ้นตั้งแต่ครั้งแรก จนตอนนี้หายดีแล้ว
-                        เสียดายที่ไม่ได้มาที่ The One Clinic ก่อนหน้านี้</span>
+                        เสียดายที่ไม่ได้มาที่ Clinic Laser ก่อนหน้านี้</span>
                 </div>
                 <div class="user-comment">
                     <img src="../Image/user.png" alt="">
@@ -285,7 +294,7 @@
                 <div class="comment">
                     <span>ผมมีปัญหาเรื่องสิวที่หลัง ไปรักษาที่คลินิกชื่อดังเป็นปีก็ไม่หาย
                         สุดท้ายผมมารักษากับหมอหนึ่งแล้วอาการดีขึ้นตั้งแต่ครั้งแรก จนตอนนี้หายดีแล้ว
-                        เสียดายที่ไม่ได้มาที่ The One Clinic ก่อนหน้านี้</span>
+                        เสียดายที่ไม่ได้มาที่ Clinic Laser ก่อนหน้านี้</span>
                 </div>
                 <div class="user-comment">
                     <img src="../Image/user.png" alt="">

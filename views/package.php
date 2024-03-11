@@ -58,23 +58,23 @@
 
                 <?php
 
-            include '../Php/config.php';
+                    include '../Php/config.php';
 
-            $sql = "SELECT * FROM packages";
-            $result = mysqli_query($connect, $sql);
+                    $sql = "SELECT * FROM packages";
+                    $result = mysqli_query($connect, $sql);
 
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<div class='card'>";
-                echo "<img src='{$row['image']}' alt='Package Image'>";
-                echo "<h2>{$row['name']}</h2>";
-                echo "<p>{$row['detail']}</p>";
-                echo "<p class='price-content'>Price: {$row['price']}</p>";
-                echo "<button class='open-button' onclick='openGetbuy()'>Buy</button>";
-                echo "</div>";
-            }
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<div class='card'>";
+                        echo "<img src='{$row['image']}' alt='Package Image'>";
+                        echo "<h2>{$row['name']}</h2>";
+                        echo "<p>{$row['detail']}</p>";
+                        echo "<p class='price-content'>Price: {$row['price']}</p>";
+                        echo "<button class='open-button' onclick='openGetbuy()'>Buy</button>";
+                        echo "</div>";
+                    }
 
-            mysqli_close($connect);
-        ?>
+                    mysqli_close($connect);
+                ?>
 
             </div>
         </div>
@@ -134,15 +134,21 @@
 
 
     <div class="form-popup" id="getbuy">
-        <form action="" method="post" class="form-container">
+        <form action="../Php/reserve_customer.php" method="post" class="form-container">
 
-            <label for="fname">First Name</label>
-            <input type="text" placeholder="Enter First name..." name="fname" required>
+            <?php
 
-            <label for="phone">Phone</label>
-            <input type="text" placeholder="Enter phone..." name="phone" required>
+                if (isset($_SESSION['fname'])) {
+                    $fname = $_SESSION['fname'];
+                    echo "<input type='hidden' name='customer_name' value='$fname' required></button> ";
+                    echo "<label for='package_name'>Package Name:</label>";
+                    echo "<input type='text' name='package_name' required>";
+                } else {
+                    echo "Log in, Sign up";
+                }
+            ?>
 
-            <input type="submit" name="getbuy" value="Submit" class="btn"></input>
+            <input type="submit" name="getbuy" value="Reserve" class="btn"></input>
             <input type="submit" name="close" value="Close" onclick="closeGetbuy()" class="btn cancel"></input>
 
         </form>
