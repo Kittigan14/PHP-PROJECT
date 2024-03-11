@@ -32,13 +32,13 @@
                 <div class="menu-list">
                     <p>รายละเอียด Package</p>
                     <button>
-                        <a href=""> View </a>
+                        <a href="./data_package.php"> View </a>
                     </button>
                 </div>
                 <div class="menu-list">
                     <p>ข้อมูล ลูกค้า</p>
                     <button>
-                        <a href=""> View </a>
+                        <a href="./data_customer.php"> View </a>
                     </button>
                 </div>
                 <div class="menu-list">

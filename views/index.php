@@ -4,15 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Css/services.css">
-    <script src="../Script/script.js"></script>
+    <link rel="stylesheet" href="../Css/index.css">
+    <script src="../Script/open_popup.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <title>Home Page</title>
 </head>
 
+<style>
+    .message button {
+        outline: none;
+        border: none;
+        background: none;
+    }
+</style>
+
 <body>
+
+    <div class="message">
+        <button onclick='openFeedback()'>
+            <img src="../Image/comment.png" alt="">
+        </button>
+    </div>
 
     <div class="navbar-container">
 
@@ -84,6 +98,18 @@
 
                 <input type="submit" name="login" value="Log in" class="btn"></input>
                 <input type="submit" name="close" value="Close" onclick="closelogin()" class="btn cancel"></input>
+            </form>
+        </div>
+
+        <div class="form-popup" id="feedback">
+            <form action="" method="post" class="form-container">
+                <h1>Feedback</h1>
+
+                <label for="comment"> Comment </label>
+                <input type="text" placeholder="" name="comment" id="message" required>
+
+                <input type="submit" name="feedback" value="Comment" class="btn"></input>
+                <input type="submit" name="close" value="Close" onclick="closeFeedback()" class="btn cancel"></input>
             </form>
         </div>
 
@@ -189,7 +215,7 @@
                 <div class="line-product"></div>
                 <p>แพ็คเกจ</p>
                 <button class="get-detail">
-                    <a href="#">
+                    <a href="./package.php">
                         GET DETAIL
                     </a>
                 </button>
@@ -200,26 +226,26 @@
                     <div class="image-product">
                         <img src="../Image/Product/1.png" alt="" width="320px">
                     </div> <br>
-                    <span>คอร์สเลเซอร์สิว 12 ขั้นตอน</span>
-                    <p>รักษาสิวถูกวิธีไม่ทิ้งรอย! ด้วยคอร์สเลเซอร์สิว <br> 12 ขั้นตอน ฆ่าเชื้อสิว ลดความมัน ลดรอยดำ
-                        รอยแดง</p>
-                    <button class="get-detail">GET DETAIL</button>
+                    <span>เลเซอร์กำจัด ขน</span>
+                    <p>เราเลือกใช้เลเซอร์กำจัดขนรุ่นใหม่ล่าสุดจากอเมริกา <br> ลงลึก
+                        จับเส้นขนได้อย่างแม่นยำ</p>
+                    <button class="get-detail" onclick="location.href='./package.php'">GET DETAIL</button>
                 </div>
                 <div class="product-list">
                     <div class="image-product">
                         <img src="../Image/Product/2.png" alt="" width="320px">
                     </div> <br>
-                    <span>TCA Cross</span>
-                    <p>รักษาหลุมสิวด้วยการใช้กรดอินทรีย์ธรรมชาติ Trichloro-Acetic Acid (TCA)</p>
-                    <button class="get-detail">GET DETAIL</button>
+                    <span>เลเซอร์กำจัด รักแร้</span>
+                    <p>การกำจัดขนรักแร้ด้วยการยิงพลังงานจากคลื่นแสงเลเซอร์ ลดการเกิดใหม่ของเส้นขน</p>
+                    <button class="get-detail" onclick="location.href='./package.php'">GET DETAIL</button>
                 </div>
                 <div class="product-list">
                     <div class="image-product">
                         <img src="../Image/Product/3.png" alt="" width="320px">
                     </div> <br>
-                    <span>Hair Multiplex Program</span>
-                    <p>โปรแกรมดูแลผม ช่วยกระตุ้นให้ผมงอกเร็ว <br> และเจริญเติบโตได้ดี</p>
-                    <button class="get-detail">GET DETAIL</button>
+                    <span>เลเซอร์กำจัด ฝ้า</span>
+                    <p>การใช้พลังงานแสงยิ่งไปที่ผิวหนังบริเวณเป้าหมาย <br> เพื่อช่วยกระตุ้นให้คอลลาเจนผลิตเซลล์ใหม่ๆ</p>
+                    <button class="get-detail" onclick="location.href='./package.php'">GET DETAIL</button>
                 </div>
             </div>
 
@@ -289,19 +315,19 @@
 
         <div class="doctor-content">
             <div class="doctor-list">
-                <img src="../Image/banner-list-2.jpg" alt="">
-                <span>Cipher</span>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <img src="../Image/Doctor-1.jpg" alt="">
+                <span>Alexander</span>
+                <p>Doctor</p>
             </div>
             <div class="doctor-list">
-                <img src="../Image/banner-list-2.jpg" alt="">
-                <span>Pxyyy</span>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <img src="../Image/Doctor-2.jpg" alt="">
+                <span>Olivia</span>
+                <p>Doctor</p>
             </div>
             <div class="doctor-list">
-                <img src="../Image/banner-list-2.jpg" alt="">
-                <span>JohnDoe</span>
-                <p>Lorem ipsum dolor sit amet.</p>
+                <img src="../Image/Doctor-3.jpg" alt="">
+                <span>Sophia</span>
+                <p>Doctor</p>
             </div>
         </div>
 
@@ -359,7 +385,6 @@
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>
