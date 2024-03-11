@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="../Css/services.css">
     <script src="../Script/script.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -30,7 +30,7 @@
         </ul>
 
         <div class="navbar-button">
-            
+
             <?php
 
                 session_start();
@@ -109,6 +109,9 @@
                 <label for="email"> Email </label> <br>
                 <input type="email" placeholder="Enter Email" name="email" required> <br>
 
+                <label for="phone"> Phone </label> <br>
+                <input type="text" placeholder="Enter Phone" name="phone" min="1" maxlength="10" required> <br>
+
                 <label for="address"> Address </label>
                 <input type="text" placeholder="Enter your Address" name="address" id="address" required>
 
@@ -116,7 +119,7 @@
                 <input type="password" placeholder="Enter Password" name="psw" required>
 
                 <input type="submit" name="signup" value="Sign up" class="btn"></input>
-                <input type="submit" name="close"  value="Close" onclick="closeSignup()" class="btn cancel"></input>
+                <input type="submit" name="close" value="Close" onclick="closeSignup()" class="btn cancel"></input>
             </form>
         </div>
     </div>
@@ -140,7 +143,9 @@
                     </div>
                     <h1>รักษาสิว</h1>
                     <p>รอยสิว และ หลุมสิว</p>
-                    <button> View </button>
+                    <button>
+                        <a href="./services.php#list-1"> View </a>
+                    </button>
                 </div>
                 <div class="explain-list">
                     <div class="img-list-banner">
@@ -148,15 +153,19 @@
                     </div>
                     <h1>รักษาฝ้า</h1>
                     <p>กระ และ จุดด่างดำ</p>
-                    <button> View </button>
+                    <button>
+                        <a href="./services.php#list-2"> View </a>
+                    </button>
                 </div>
                 <div class="explain-list">
                     <div class="img-list-banner">
                         <img src="../Image/laser.png" alt="" width="64px" height="64px">
                     </div>
-                    <h1>รักษาติ่งเนื้อ</h1>
+                    <h1>หัตถการความงาม</h1>
                     <p>ใฝ ขี้แมลงวัน</p>
-                    <button> View </button>
+                    <button>
+                        <a href="./services.php#list-3"> View </a>
+                    </button>
                 </div>
                 <div class="explain-list">
                     <div class="img-list-banner">
@@ -164,7 +173,9 @@
                     </div>
                     <h1>บริการอื่น ๆ</h1>
                     <p>บริการความงามที่น่าสนใจ</p>
-                    <button> View </button>
+                    <button>
+                        <a href="./services.php#list-4"> View </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -178,7 +189,7 @@
                 <div class="line-product"></div>
                 <p>แพ็คเกจ</p>
                 <button class="get-detail">
-                    <a href="./Detail_Explain.html">
+                    <a href="#">
                         GET DETAIL
                     </a>
                 </button>
@@ -187,7 +198,7 @@
             <div class="product-list-container">
                 <div class="product-list">
                     <div class="image-product">
-                        <img src="../Product/1.png" alt="" width="320px">
+                        <img src="../Image/Product/1.png" alt="" width="320px">
                     </div> <br>
                     <span>คอร์สเลเซอร์สิว 12 ขั้นตอน</span>
                     <p>รักษาสิวถูกวิธีไม่ทิ้งรอย! ด้วยคอร์สเลเซอร์สิว <br> 12 ขั้นตอน ฆ่าเชื้อสิว ลดความมัน ลดรอยดำ
@@ -196,7 +207,7 @@
                 </div>
                 <div class="product-list">
                     <div class="image-product">
-                        <img src="../Product/2.png" alt="" width="320px">
+                        <img src="../Image/Product/2.png" alt="" width="320px">
                     </div> <br>
                     <span>TCA Cross</span>
                     <p>รักษาหลุมสิวด้วยการใช้กรดอินทรีย์ธรรมชาติ Trichloro-Acetic Acid (TCA)</p>
@@ -204,7 +215,7 @@
                 </div>
                 <div class="product-list">
                     <div class="image-product">
-                        <img src="../Product/3.png" alt="" width="320px">
+                        <img src="../Image/Product/3.png" alt="" width="320px">
                     </div> <br>
                     <span>Hair Multiplex Program</span>
                     <p>โปรแกรมดูแลผม ช่วยกระตุ้นให้ผมงอกเร็ว <br> และเจริญเติบโตได้ดี</p>
@@ -350,4 +361,5 @@
     </footer>
 
 </body>
+
 </html>
