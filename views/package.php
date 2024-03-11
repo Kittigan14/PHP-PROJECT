@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/index.css">
-    <script src="../Script/script.js"></script>
+    <script src="../Script/open_popup.js"></script>
     <title>Document</title>
 </head>
 
