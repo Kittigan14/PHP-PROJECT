@@ -44,7 +44,7 @@
                 <div class="menu-list">
                     <p>ยอดการขาย</p>
                     <button>
-                        <a href=""> View </a>
+                        <a href="./data_sale.php"> View </a>
                     </button>
                 </div>
             

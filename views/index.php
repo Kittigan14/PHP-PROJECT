@@ -65,7 +65,7 @@
     <div class="Container" id="Container">
 
         <div class="banner-title"> ความงามมาจากใจและเทคโนโลยีเลเซอร์ที่ทันสมัย <br>
-            <button class="get-detail">GET DETAIL</button>
+            <button class="get-detail" onclick="location.href='./services.php'" >GET DETAIL</button>
         </div>
 
         <div class="box-content-list">
