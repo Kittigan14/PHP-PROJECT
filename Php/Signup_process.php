@@ -10,7 +10,7 @@
         $birthday = $_POST['birthday'];
         $email = $_POST['email'];
         $address = $_POST['address'];
-        $psw = md5($_POST['psw']);
+        $psw = $_POST['psw'];
         $phone = $_POST['phone'];
 
         $currentDate = new DateTime();

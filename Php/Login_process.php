@@ -5,7 +5,7 @@
 
     if (isset($_POST['login'])) {
         $fname = $_POST['fname'];
-        $psw = md5($_POST['psw']);
+        $psw = $_POST['psw'];
 
         $sql = "SELECT * FROM customers WHERE firstname='$fname' AND password='$psw'";
         $result = mysqli_query($connect, $sql);
